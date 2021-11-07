@@ -29,7 +29,6 @@ namespace ResponseTimeStatistics.UnitTest
         [Test]
         public void getAverage_MultipleInput_ReturnTheAverage()
         {
-            //1, 3, 9, 31, 48, 2000, 14567
             statsCollector.pushValue(3);
             statsCollector.pushValue(9);
             statsCollector.pushValue(1);
@@ -43,7 +42,6 @@ namespace ResponseTimeStatistics.UnitTest
         [Test]
         public void getAverage_MultipleTheSameInput_ReturnTheAverage()
         {
-            //1, 3, 9, 31, 48, 2000, 14567
             statsCollector.pushValue(3);
             statsCollector.pushValue(3);
             statsCollector.pushValue(3);
@@ -54,7 +52,6 @@ namespace ResponseTimeStatistics.UnitTest
         [Test]
         public void getAverage_MultipleInput_IgnoreNegative_ReturnTheAverage()
         {
-            //-12323, 1, 3, 9, 31, 48, 2000, 14567
             statsCollector.pushValue(3);
             statsCollector.pushValue(9);
             statsCollector.pushValue(1);
@@ -69,7 +66,6 @@ namespace ResponseTimeStatistics.UnitTest
         [Test]
         public void getAverage_MultipleInput_IgnoreBiggerThan19000_ReturnTheAverage()
         {
-            //1, 3, 9, 31, 48, 2000, 14567, 19001
             statsCollector.pushValue(3);
             statsCollector.pushValue(9);
             statsCollector.pushValue(1);

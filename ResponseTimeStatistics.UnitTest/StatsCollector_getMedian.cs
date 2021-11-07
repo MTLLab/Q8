@@ -29,7 +29,6 @@ namespace ResponseTimeStatistics.UnitTest
         [Test]
         public void getMedian_MultipleInput_ReturnTheMedian()
         {
-            //1, 3, 9, 31, 48, 2000, 14567
             statsCollector.pushValue(3);
             statsCollector.pushValue(9);
             statsCollector.pushValue(1);
@@ -43,7 +42,6 @@ namespace ResponseTimeStatistics.UnitTest
         [Test]
         public void getMedian_MultipleTheSameInput_ReturnTheMedian()
         {
-            //1, 3, 9, 31, 48, 2000, 14567
             statsCollector.pushValue(3);
             statsCollector.pushValue(3);
             statsCollector.pushValue(3);
@@ -54,7 +52,6 @@ namespace ResponseTimeStatistics.UnitTest
         [Test]
         public void getMedian_MultipleInput_IgnoreNegative_ReturnTheMedian()
         {
-            //-12323, 1, 3, 9, 31, 48, 2000, 14567
             statsCollector.pushValue(3);
             statsCollector.pushValue(9);
             statsCollector.pushValue(1);
@@ -69,7 +66,6 @@ namespace ResponseTimeStatistics.UnitTest
         [Test]
         public void getMedian_MultipleInput_IgnoreBiggerThan19000_ReturnTheMedian()
         {
-            //1, 3, 9, 31, 48, 2000, 14567, 19001
             statsCollector.pushValue(3);
             statsCollector.pushValue(9);
             statsCollector.pushValue(1);
