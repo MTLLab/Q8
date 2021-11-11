@@ -2,7 +2,7 @@
 
 namespace ResponseTimeStatistics
 {
-    public class StatsCollector
+    public class StatsCollector_Buckets
     {
 
         /*
@@ -23,7 +23,7 @@ namespace ResponseTimeStatistics
          *This variable here is mainly for performance reason. We could dynamiclly calculate the total number.
          */
         private double totalRecordNumber;
-        public StatsCollector()
+        public StatsCollector_Buckets()
         {
         }
 

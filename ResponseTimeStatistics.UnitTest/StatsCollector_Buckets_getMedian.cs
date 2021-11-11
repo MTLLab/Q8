@@ -2,15 +2,15 @@ using NUnit.Framework;
 
 namespace ResponseTimeStatistics.UnitTest
 {
-    public class StatsCollector_getMedian
+    public class StatsCollector_Buckets_getMedian
     {
 
-        private StatsCollector statsCollector;
+        private StatsCollector_Buckets statsCollector;
 
         [SetUp]
         public void Setup()
         {
-            statsCollector = new StatsCollector();
+            statsCollector = new StatsCollector_Buckets();
         }
 
         [Test]
