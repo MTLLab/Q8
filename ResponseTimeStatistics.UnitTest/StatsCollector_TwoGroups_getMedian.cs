@@ -1,16 +1,16 @@
-using NUnit.Framework;
+﻿using NUnit.Framework;
 
 namespace ResponseTimeStatistics.UnitTest
 {
-    public class StatsCollector_getMedian
+    public class StatsCollector_TwoGroups_getMedian
     {
 
-        private StatsCollector statsCollector;
+        private StatsCollector_TwoGroups statsCollector;
 
         [SetUp]
         public void Setup()
         {
-            statsCollector = new StatsCollector();
+            statsCollector = new StatsCollector_TwoGroups();
         }
 
         [Test]
