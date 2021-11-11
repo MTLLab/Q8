@@ -2,7 +2,7 @@
 
 namespace ResponseTimeStatistics
 {
-    public class StatsCollector
+    public class StatsCollector_Buckets
     {
 
         /*
@@ -23,7 +23,7 @@ namespace ResponseTimeStatistics
          *This variable here is mainly for performance reason. We could dynamiclly calculate the total number.
          */
         private double totalRecordNumber;
-        public StatsCollector()
+        public StatsCollector_Buckets()
         {
         }
 
@@ -38,6 +38,8 @@ namespace ResponseTimeStatistics
 
         public int getMedian()
         {
+            int result = 0;
+            bool isEven = (totalRecordNumber%2 == 0);
             double medianPosition = totalRecordNumber / 2;
             int index = 0;
             double currentPosition = responseTimes[index];
@@ -47,7 +49,25 @@ namespace ResponseTimeStatistics
                 index++;
                 currentPosition += responseTimes[index];
             }
-            return index;
+
+            //Since the total number is even, we need to calculate the
+            //average value of the two median items
+            if(responseTimes[index] == 1 && isEven)
+            {
+                int nextIndex = index;
+                do
+                {
+                    nextIndex++;
+                }
+                while (responseTimes[nextIndex] == 0);
+                result = (index + nextIndex) / 2;
+            }
+            else
+            {
+                result = index;
+            }
+
+            return result;
         }
 
         public double getAverage()

@@ -1,16 +1,16 @@
-using NUnit.Framework;
+﻿using NUnit.Framework;
 
 namespace ResponseTimeStatistics.UnitTest
 {
-    public class StatsCollector_getMedian
+    public class StatsCollector_TwoGroups_getMedian
     {
 
-        private StatsCollector statsCollector;
+        private StatsCollector_TwoGroups statsCollector;
 
         [SetUp]
         public void Setup()
         {
-            statsCollector = new StatsCollector();
+            statsCollector = new StatsCollector_TwoGroups();
         }
 
         [Test]
@@ -75,6 +75,38 @@ namespace ResponseTimeStatistics.UnitTest
             statsCollector.pushValue(2000);
             statsCollector.pushValue(19001);
             Assert.AreEqual(statsCollector.getMedian(), 31);
+        }
+
+        [Test]
+        public void getMedian_MultipleInput_EvenNumber_ReturnTheMedian()
+        {
+            statsCollector.pushValue(3);
+            statsCollector.pushValue(9);
+            statsCollector.pushValue(1);
+            statsCollector.pushValue(48);
+            statsCollector.pushValue(31);
+            statsCollector.pushValue(2000);
+            Assert.AreEqual(statsCollector.getMedian(), 20);
+        }
+
+        [Test]
+        public void getMedian_TwoInput_EvenNumber_ReturnTheMedian()
+        {
+            statsCollector.pushValue(3);
+            statsCollector.pushValue(9);
+            Assert.AreEqual(statsCollector.getMedian(), 6);
+        }
+
+        [Test]
+        public void getMedian_MultipleSameValueInput_EvenNumber_ReturnTheMedian()
+        {
+            statsCollector.pushValue(3);
+            statsCollector.pushValue(3);
+            statsCollector.pushValue(6);
+            statsCollector.pushValue(6);
+            statsCollector.pushValue(12);
+            statsCollector.pushValue(17);
+            Assert.AreEqual(statsCollector.getMedian(), 6);
         }
     }
 }
